@@ -1,5 +1,5 @@
 // Utility methods I usually need
-
+(function(){
 function Path(){
     this._path = [];
 }
@@ -27,18 +27,18 @@ Path.prototype.moveto = function(x, y){
 //     this._path.push('H' + x);
 //     return this;
 // };
-Path.prototype.horizontalby = function(x){
-    this._path.push('h' + x);
-    return this;
-};
-Path.prototype.verticalto = function(y){
-    this._path.push('V' + y);
-    return this;
-};
-Path.prototype.verticalby = function(y){
-    this._path.push('v', + y);
-    return this;
-};
+// Path.prototype.horizontalby = function(x){
+//     this._path.push('h' + x);
+//     return this;
+// };
+// Path.prototype.verticalto = function(y){
+//     this._path.push('V' + y);
+//     return this;
+// };
+// Path.prototype.verticalby = function(y){
+//     this._path.push('v', + y);
+//     return this;
+// };
 Path.prototype.beziercurveto = function(cx1, cy1, cx2, cy2, x, y){
     this._path.push('C' + [cx1, cy1, cx2, cy2, x, y].map(function(p){return Math.round(p);}).join(' '));
     return this;
@@ -97,7 +97,7 @@ Raphael.fn.sk_line = function(x1,y1,x2,y2){
     return this.path(p);
 }
 
-Raphael.prototype.sk_rect = function(x, y, w, h, text){
+Raphael.prototype.sk_rect = function(x, y, w, h){
     var p = new Path();
     p.sk_line(x,y,x,y+h);
     p.sk_line(x,y,x+w,y);
@@ -105,7 +105,7 @@ Raphael.prototype.sk_rect = function(x, y, w, h, text){
     p.sk_line(x,y+h,x+w,y+h);
     return this.path(p);
 };
-Raphael.prototype.ellipse = function(x,y,w,h,text){
+Raphael.prototype.sk_ellipse = function(x,y,w,h){
     var p = new Path();
     var points = $u.ellipse(x,y,w,h, 8);
     var count = $u.random(3, 19);
@@ -209,5 +209,6 @@ var $u = {
             points.push([X,Y]);
         }
         return points;
-        }
+    }
 };
+})();

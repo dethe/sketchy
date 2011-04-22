@@ -2,16 +2,36 @@
 <html lang="en">
 <head>
     <title>Sketchy: Raphael Plugin Demo</title>
-    <script src="http://github.com/DmitryBaranovskiy/raphael/raw/master/raphael-min.js"></script>
-    <script src="sketchy.js"></script>
-    <script src="demo.js"></script>
 </head>
 <body>
 <h1>Sketch: Raphael Plugin Demo</h1>
 <p>This is a quick demo of the sketchy plugin, a work in progress</p>
-<div id="sketch1"></div>
-<code><pre>
-
-</pre></code>
+<div>
+    <h2>Example 1: Sketchy line</h2>
+    <div id="sketch1"></div>
+    <code><pre>
+       var s1 = Raphael('sketch1', 500, 20);
+       s1.sk_line(10,10,480,10);
+    </pre></code>
+</div>
+<div>
+    <h2>Example 2: Sketchy rect</h2>
+    <div id="sketch2"></div>
+    <code><pre>
+       var s2 = Raphael('sketch2', 500, 300);
+       s2.sk_rect(10,10,480,280);
+    </pre></code>
+</div>
+<div>
+    <h2>Example 2: Sketchy ellipse</h2>
+    <div id="sketch3"></div>
+    <code><pre>
+       var s3 = Raphael('sketch3', 500, 300);
+       s3.sk_ellipse(10,10,480,280);
+    </pre></code>
+</div>
+<script src="http://github.com/DmitryBaranovskiy/raphael/raw/master/raphael-min.js"></script>
+<script src="sketchy.js"></script>
+<script src="demo.js"></script>
 </body>
 </html>
